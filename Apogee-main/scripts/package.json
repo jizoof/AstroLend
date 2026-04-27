@@ -1,0 +1,28 @@
+{
+  "name": "@astrolend/scripts",
+  "version": "0.1.0",
+  "description": "Utility scripts for AstroLend protocol - deployment, seeding, price keeper, etc.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy-all": "tsx deploy_all.ts",
+    "deploy-all:seed": "tsx deploy_all.ts --seed",
+    "setup-tokens": "tsx setup_tokens.ts",
+    "seed-pool": "tsx seed_pool.ts",
+    "fund-user": "tsx fund_user.ts",
+    "add-trustline": "tsx add_trustline.ts",
+    "generate-trustline-xdr": "tsx generate_trustline_xdr.ts",
+    "update-price": "tsx update_price.ts",
+    "update-price:crash": "tsx update_price.ts --crash",
+    "update-price:mock": "tsx update_price.ts --mock",
+    "update-price:crash-mock": "tsx update_price.ts --crash --mock"
+  },
+  "dependencies": {
+    "@stellar/stellar-sdk": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "tsx": "^4.7.0",
+    "typescript": "^5"
+  }
+}
