@@ -19,15 +19,26 @@ jobs:
       - name: Add WASM target
         run: rustup target add wasm32-unknown-unknown
 
+      - name: Install Soroban CLI
+        run: |
+          cargo install --locked soroban-cli
+
       - name: Build contracts
         run: |
           cd contracts
-          
-          # Build oracle first
-          cargo build --target wasm32-unknown-unknown --release -p astrolend-price-oracle
-          
-          # Build interest model
-          cargo build --target wasm32-unknown-unknown --release -p astrolend-interest-rate-model
-          
-          # Build pool last
-          cargo build --target wasm32-unknown-unknown --release -p astrolend-pool
+
+          # Build oracle (generates WASM)
+          cd price_oracle
+          soroban contract build
+          cd ..
+
+          # Build interest model (if exists)
+          if [ -d "interest-rate-model" ]; then
+            cd interest-rate-model
+            soroban contract build
+            cd ..
+          fi
+
+          # Build pool LAST (depends on oracle wasm)
+          cd pool
+          soroban contract build
