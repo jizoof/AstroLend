@@ -17,6 +17,33 @@
 
 ---
 
+## 🌐 Live Demo
+👉 https://astro-lend-frontend.vercel.app/
+
+## ⚙️ Tech Stack
+- Soroban Smart Contracts (Rust)
+- Stellar Blockchain
+- Next.js (Frontend)
+- Tailwind CSS
+- Vercel (Deployment)
+- GitHub Actions (CI/CD)
+
+## 🔗 Smart Contracts
+
+- **Pool Contract:**  
+CCFKPU76M4NE7AJXJINNKOPAEYZMLMYLAXVBRZCCNPCDCBVTR4NMKWPC  
+
+- **Oracle Contract:**  
+CDWBM23FFKBX7B7ME7OJFK24C7B7VI5JNDVZCWEK5LXDBNSQOHQAP2CM  
+
+## 📱 Mobile Responsive
+*(Add screenshot next step)*
+
+## ⚙️ CI/CD
+*(Add screenshot next step)*
+
+---
+
 ## Overview
 
 AstroLend enables decentralized lending and borrowing on the Stellar network:
