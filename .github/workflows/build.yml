@@ -2,7 +2,8 @@ name: Build Contracts
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+  pull_request:
 
 jobs:
   build:
@@ -21,12 +22,12 @@ jobs:
       - name: Build contracts
         run: |
           cd contracts
-
+          
           # Build oracle first
           cargo build --target wasm32-unknown-unknown --release -p astrolend-price-oracle
-
+          
           # Build interest model
           cargo build --target wasm32-unknown-unknown --release -p astrolend-interest-rate-model
-
-          # Now build pool
+          
+          # Build pool last
           cargo build --target wasm32-unknown-unknown --release -p astrolend-pool
