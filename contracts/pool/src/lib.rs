@@ -133,7 +133,7 @@ pub struct LendingPool;
 // Oracle contract client for cross-contract calls
 mod oracle_contract {
     soroban_sdk::contractimport!(
-        file = "../price_oracle/target/wasm32v1-none/release/astrolend_price_oracle.wasm"
+        file = "../oracle.wasm"
     );
 }
 

@@ -32,18 +32,14 @@ jobs:
         run: |
           cd contracts
 
-          # Build oracle (generates WASM)
+          # Build oracle
           cd price_oracle
           soroban contract build
+
+          # Copy wasm to stable location
+          cp target/wasm32v1-none/release/*.wasm ../oracle.wasm
           cd ..
 
-          # Build interest model (if exists)
-          if [ -d "interest-rate-model" ]; then
-            cd interest-rate-model
-            soroban contract build
-            cd ..
-          fi
-
-          # Build pool LAST (depends on oracle wasm)
+          # Build pool
           cd pool
           soroban contract build
