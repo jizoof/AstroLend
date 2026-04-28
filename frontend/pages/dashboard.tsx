@@ -1,4 +1,7 @@
-"use client"
+"use client";
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 import { useEffect, useState, useCallback } from "react"
 import type { Transaction } from "@/types/dashboard"
@@ -19,6 +22,9 @@ import { Badge } from "@/components/ui/badge"
 import { toast } from "sonner"
 
 export default function DashboardPage() {
+  if (typeof window === "undefined") {
+  return null;
+  }
   const { publicKey, isConnected, network, signTx } = useWallet()
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null)
   const [markets, setMarkets] = useState<MarketData[]>([])
