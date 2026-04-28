@@ -1,4 +1,7 @@
-"use client"
+"use client";
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 import { useEffect, useState, useCallback } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -14,6 +17,9 @@ import { Shield, ArrowDown, ArrowUp, AlertTriangle, Loader2, CheckCircle, Calcul
 import { toast } from "sonner"
 
 export default function CollateralPage() {
+  if (typeof window === "undefined") {
+  return null;
+  } 
   const { publicKey, isConnected, signTx } = useWallet()
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null)
   const [walletBalances, setWalletBalances] = useState<{ sXLM: number; sUSDC: number } | null>(null)
