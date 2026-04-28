@@ -37,7 +37,8 @@ CCFKPU76M4NE7AJXJINNKOPAEYZMLMYLAXVBRZCCNPCDCBVTR4NMKWPC
 CDWBM23FFKBX7B7ME7OJFK24C7B7VI5JNDVZCWEK5LXDBNSQOHQAP2CM  
 
 ## 📱 Mobile Responsive
-*(Add screenshot next step)*
+
+![Mobile View](frontend/public/mobile.png)
 
 ## ⚙️ CI/CD
 *(Add screenshot next step)*
