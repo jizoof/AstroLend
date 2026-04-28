@@ -36,8 +36,10 @@ jobs:
           cd price_oracle
           soroban contract build
 
-          # Copy wasm to stable location
-          cp target/wasm32v1-none/release/*.wasm ../oracle.wasm
+          # Find and copy wasm safely
+          WASM_FILE=$(find target -name "*.wasm" | head -n 1)
+          echo "Found wasm: $WASM_FILE"
+          cp "$WASM_FILE" ../oracle.wasm
           cd ..
 
           # Build pool
