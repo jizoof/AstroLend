@@ -7,6 +7,11 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "standalone",
+
+  // 🔥 THIS IS THE KEY FIX
+  experimental: {
+    runtime: "nodejs",
+  },
 };
 
 export default nextConfig;
