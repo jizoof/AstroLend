@@ -32,14 +32,14 @@ jobs:
         run: |
           cd contracts
 
-          # Build oracle
+          # Build oracle and force output name/location
           cd price_oracle
-          soroban contract build
-
-          # Copy the exact known output
-          cp target/wasm32v1-none/release/astrolend_price_oracle.wasm ../oracle.wasm || cp target/wasm32v1-none/release/deps/*.wasm ../oracle.wasm
+          soroban contract build --out-dir ../build --out-file oracle.wasm
           cd ..
 
-          # Build pool
+          # Verify file exists (important debug)
+          ls -la build
+
+          # Build pool (now guaranteed file exists)
           cd pool
           soroban contract build
