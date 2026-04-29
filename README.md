@@ -41,7 +41,35 @@ CDWBM23FFKBX7B7ME7OJFK24C7B7VI5JNDVZCWEK5LXDBNSQOHQAP2CM
 ![Mobile View](frontend/public/mobile.png)
 
 ## ⚙️ CI/CD
-*(Add screenshot next step)*
+
+### 🔧 Continuous Integration (GitHub Actions)
+
+- Automatically runs on every push and pull request
+- Builds all Soroban smart contracts
+- Ensures WASM files are generated and correctly linked
+- Prevents broken builds from being merged
+
+✔ Successfully validates:
+- `price_oracle` contract build  
+- `pool` contract build with imported WASM  
+
+---
+
+### 🌐 Continuous Deployment (Vercel)
+
+- Frontend is automatically deployed on every push to `main`
+- Preview deployments available for testing changes
+- Fast global delivery via Vercel edge network
+
+🔗 Live App: https://astro-lend-frontend.vercel.app/
+
+---
+
+### 🟢 Build Status
+
+![CI Status](https://github.com/jizoof/AstroLend/actions/workflows/build.yml/badge.svg)
+
+![CI Pipeline](frontend/public/ci.png)
 
 ---
 
