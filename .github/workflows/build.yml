@@ -32,14 +32,22 @@ jobs:
         run: |
           cd contracts
 
-          # Build oracle and force output name/location
+          # Create build folder
+          mkdir -p build
+
+          # Build oracle → output goes into build/
           cd price_oracle
-          soroban contract build --out-dir ../build --out-file oracle.wasm
+          soroban contract build --out-dir ../build
           cd ..
 
-          # Verify file exists (important debug)
+          # Rename the wasm to a fixed name
+          ORACLE_WASM=$(ls build/*.wasm | head -n 1)
+          echo "Found: $ORACLE_WASM"
+          mv "$ORACLE_WASM" build/oracle.wasm
+
+          # Verify
           ls -la build
 
-          # Build pool (now guaranteed file exists)
+          # Build pool
           cd pool
           soroban contract build
